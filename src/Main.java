@@ -1,9 +1,25 @@
+import java.util.Arrays;
+
 public class Main {
+    public static Integer value = 129;
     public static void changeValue(int a) {
         a = 22;
     }
-    public static void changeValue(Integer val) {
-        val = 22;
+    public static void changeValue(Integer aa) {
+        System.out.println(aa==value);
+        aa = 22;
+        System.out.println(aa==value);
+
+
+    }
+    public static void changeValue( Integer [] value) {
+        value= new Integer[]{1, 2};
+
+
+    }
+
+    public static void changeValue1(Integer [] value) {
+        value[0] = 99;
     }
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -19,9 +35,9 @@ public class Main {
 //                - В ответе указано верное значение переменной.
 //                - Ответ на вопрос из задачи аргументирован.
         //задание № 5
-        int a =33;
-        changeValue(a);
-        System.out.println(a);// значение переменной а не изменилось в методе changeValue , т.к. при вызове метода
+//        int a =33;
+//        changeValue(a);
+//        System.out.println(a);// значение переменной а не изменилось в методе changeValue , т.к. при вызове метода
         // changeValue мы передаем в него значение переменной int a, то есть 33, после, внутри метода присваиваем ей
         // значение 22.И ничего не делаем, поэтому в методе main значение переменной остается прежним 33.
 
@@ -35,10 +51,29 @@ public class Main {
 //*На платформу пришлите ответы на вопросы выше.   Код вашего решения присылать на платформу не нужно.*
 //        - Критерии оценки
         //задание № 6
-        Integer value = 33;
-        System.out.println(value); //Значение переменной не изменилось, т.к. в метод changeValue передается значение обьекта
-        Integer dd = new Integer(123123);
-        System.out.println("dd = " + dd);
+//        Integer aa = 129;
+//        changeValue(aa);//
+
+       //Задание № 6 . Значение переменной не изменилось, тк передается ссылка на обьект класса Integer, а при попытке
+        // его изменить в методе changeValue, создается новый обьект и туда присваивается значение 22, которое потом никуда не присваивается и не возвращается из метода.
+
+//        Integer[] value = {3, 4};
+//       value= changeValue(value);
+//        System.out.println(Arrays.toString(value));
+//Задание № 7 . Значение массива внутри метода main не изменилось , тк передается ссылка на массив класса Integer {3,4} ,  внутри метода
+// создается другой массив {1,2} , и также внутри метода  массиву value передается его ссылка, но эта ссылка не присваивается массиву value {3,4} в методе main, следовательно значение не меняется.
+
+        //Задание № 8 .
+        // Задание № 8 - Значения внутри массива value в методе main изменилось с {3,4} на {99,4}, потому что в
+        // параметры метода changeValue передается ссылка на конкретный обьект, и данный метод работает уже конкретно
+        // с этим обьектом, следовательно значения обьекта в куче менятся.
+        Integer[] value = {3, 4};
+        changeValue(value);
+//        changeValue1(value);
+        System.out.println(Arrays.toString(value));
+        Person lp = new Person("Lyapis", "Trubetskoy");
+            lp.changePerson(lp);
+        System.out.println(lp.toString());
 
     }
 }
